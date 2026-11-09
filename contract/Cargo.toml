@@ -1,0 +1,31 @@
+[package]
+name = "task_bounty"
+version = "0.1.0"
+edition = "2021"
+description = "TaskBounty — pay-per-task AI agent marketplace on NEAR (escrow + state machine)"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = "=5.29.1"
+
+[dev-dependencies]
+# unit-testing feature is required by near-sdk 5.x for host-side unit tests
+# (without it the crate refuses to compile for a non-wasm target).
+near-sdk = { version = "=5.29.1", features = ["unit-testing"] }
+# near-workspaces 0.23.0 (not 0.24.0): 0.24 needs near-crypto 0.38 /
+# aws-lc-rs ^1.18.2, while near-sdk 5.29.1 needs near-crypto 0.37 /
+# aws-lc-rs =1.16.2 — the two cannot coexist in one test binary because
+# aws-lc-rs declares a native `links` lib. 0.23.0 uses the 0.37 line.
+near-workspaces = "=0.23.0"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+serde_json = "1"
+anyhow = "1"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+overflow-checks = true

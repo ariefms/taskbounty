@@ -1,0 +1,153 @@
+:root {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #1a1a1a;
+  background: #f6f7f9;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+a { color: #1a66cc; }
+
+.app { max-width: 880px; margin: 0 auto; padding: 16px; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 8px 0 16px;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.header h1 { margin: 0; font-size: 1.8rem; }
+.subtitle { margin: 4px 0; color: #555; }
+.contract-line { margin: 4px 0 0; font-size: 0.9rem; color: #555; }
+.contract-line code { background: #e8e8e8; padding: 1px 5px; border-radius: 4px; }
+
+.wallet-box { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.account { font-size: 0.9rem; word-break: break-all; text-align: right; }
+
+main { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+
+.panel {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+
+.panel h2 { margin: 0 0 12px; font-size: 1.2rem; }
+
+.form { display: flex; flex-direction: column; gap: 12px; }
+.form label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 0.9rem; }
+.form input, .form textarea, .form select, .filters select {
+  font: inherit;
+  font-weight: 400;
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background: #fff;
+}
+.form-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.form-row label { flex: 1; min-width: 160px; }
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.btn:disabled { opacity: 0.55; cursor: wait; }
+.btn-primary { background: #1a1a1a; color: #fff; }
+.btn-secondary { background: #fff; border-color: #999; color: #1a1a1a; }
+.btn-danger { background: #b3261e; color: #fff; }
+
+.muted { color: #666; }
+.small { font-size: 0.85rem; }
+
+.feedback {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  position: relative;
+  padding-right: 36px;
+}
+.feedback.success { background: #e6f4ea; border: 1px solid #5aa469; }
+.feedback.error { background: #fce8e6; border: 1px solid #c5221f; }
+.feedback-close {
+  position: absolute; top: 6px; right: 10px;
+  background: none; border: none; font-size: 1.2rem; cursor: pointer;
+}
+
+.error-box {
+  background: #fce8e6;
+  border: 1px solid #c5221f;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.list-head {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; flex-wrap: wrap;
+}
+.list-head h2 { margin: 0; }
+.filters { display: flex; gap: 8px; align-items: center; }
+.filters .btn { align-self: auto; }
+
+.task-list { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.task-card {
+  width: 100%;
+  display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline;
+  text-align: left;
+  font: inherit;
+  background: #fbfbfb;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.task-card:hover { border-color: #1a1a1a; }
+.task-card.selected { border-color: #1a1a1a; box-shadow: 0 0 0 1px #1a1a1a; }
+.task-title { font-weight: 700; flex: 1 1 60%; }
+.task-meta { color: #555; font-size: 0.9rem; flex-basis: 100%; }
+
+.status {
+  font-size: 0.8rem; font-weight: 700;
+  padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+}
+.status-Open { background: #e8f0fe; color: #174ea6; }
+.status-Claimed { background: #fef7e0; color: #7a4a00; }
+.status-ProofSubmitted { background: #f3e8fd; color: #5b21b6; }
+.status-Paid { background: #e6f4ea; color: #137333; }
+.status-Cancelled { background: #f1f3f4; color: #5f6368; }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 6px 12px;
+  margin: 0 0 12px;
+}
+.detail-grid dt { font-weight: 700; color: #555; }
+.detail-grid dd { margin: 0; word-break: break-all; }
+.description { white-space: pre-wrap; }
+
+.proof-box {
+  background: #f6f7f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 12px 0;
+}
+.proof-box h3 { margin: 0 0 8px; font-size: 1rem; }
+.proof-box p { margin: 0; white-space: pre-wrap; }
+
+.actions { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+.actions .btn { align-self: flex-start; }
+
+.footer { margin: 24px 0 8px; color: #777; font-size: 0.85rem; text-align: center; }

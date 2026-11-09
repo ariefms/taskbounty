@@ -1,0 +1,9 @@
+node_modules/
+dist/
+target/
+neardev/
+.near-credentials/
+*.log
+.DS_Store
+.env
+*.tgz
